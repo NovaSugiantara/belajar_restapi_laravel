@@ -123,9 +123,9 @@ class MahasiswaController extends Controller
                 'username' => $request->username,
                 'address' => $request->address
             ]);
-
+            $data = Mahasiswa::where('id', $id)->get();
             if ($mahasiswa) {
-                $data = Mahasiswa::where('id', $id)->get();
+                
                 return ApiFormatter::createdApi(200, 'Success Update Data', $data);
             } else {
                 return ApiFormatter::createdApi(400, 'Error');
