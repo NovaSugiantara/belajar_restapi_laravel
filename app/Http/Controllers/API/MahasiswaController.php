@@ -125,7 +125,6 @@ class MahasiswaController extends Controller
             ]);
             $data = Mahasiswa::where('id', $id)->get();
             if ($mahasiswa) {
-                
                 return ApiFormatter::createdApi(200, 'Success Update Data', $data);
             } else {
                 return ApiFormatter::createdApi(400, 'Error');
@@ -159,5 +158,4 @@ class MahasiswaController extends Controller
             return ApiFormatter::createdApi(400, 'Error');
         }
     }
-    
 }

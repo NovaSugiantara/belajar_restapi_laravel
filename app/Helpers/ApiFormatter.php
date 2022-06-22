@@ -1,4 +1,4 @@
-<?php  
+<?php
 
     namespace App\Helpers;
 
@@ -10,11 +10,12 @@
             'message' => null
         ];
 
-        public static function createdApi($code = null , $message=null , $data=null){
+        public static function createdApi($code = null, $message=null, $data=null)
+        {
             self::$response['data'] = $data;
             self::$response['code'] = $code;
             self::$response['message'] = $message;
 
-            return response()->json(self::$response,self::$response['code']);
+            return response()->json(self::$response, self::$response['code']);
         }
     }

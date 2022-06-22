@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-Route::get('/mahasiswa/detail/{id}', [MahasiswaController::class, 'show']);
-Route::post('/mahasiswa/add', [MahasiswaController::class, 'store']);
-Route::post('/mahasiswa/update/{id}', [MahasiswaController::class, 'update']);
-Route::delete('/mahasiswa/delete/{id}', [MahasiswaController::class, 'destroy']);
+Route::controller(MahasiswaController::class)->group(function () {
+    Route::get('/mahasiswa', 'index');
+    Route::get('/mahasiswa/detail/{id}', 'show');
+    Route::post('/mahasiswa/add', 'store');
+    Route::post('/mahasiswa/update/{id}', 'update');
+    Route::delete('/mahasiswa/delete/{id}', 'destroy');
+});
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
